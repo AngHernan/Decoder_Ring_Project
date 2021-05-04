@@ -1,6 +1,6 @@
 const substitution = require("../src/substitution")
 const { expect } = require("chai");
-
+ 
 describe("substitution", () => {
     it("should encode input by given alphabet", () => {
         const expected = 'jrufscpw'; 

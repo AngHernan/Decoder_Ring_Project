@@ -23,3 +23,4 @@ function substitutionRenderer() {
 }
 
 document.addEventListener("DOMContentLoaded", substitutionRenderer);
+

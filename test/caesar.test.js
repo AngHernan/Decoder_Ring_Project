@@ -1,7 +1,6 @@
 const caesar = require("../src/caesar.js");
 const expect = require("chai").expect;
 
-
 describe("caesar", () => {
     describe("should return given phrase decoded/encoded by shifting the letters of the alphabet to the left(negative) or righ(positive) by the given value", () => {
         it("should return false if shift amount is 0", () =>{

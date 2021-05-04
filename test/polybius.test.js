@@ -1,6 +1,7 @@
 const polybius = require("../src/polybius.js");
 const expect = require("chai").expect;
 
+
 describe("polybus", () => {
     it("should encode a letter properly", () => {
         const expected = "11";
