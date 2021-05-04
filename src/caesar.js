@@ -3,10 +3,11 @@
 // Only add code (e.g., helper methods, variables, etc.) within the scope
 // of the anonymous function on line 6
 
+
 const caesarModule = (function () {
-var alphabet = require('alphabet')
-var alpha = alphabet.lower.join('')
-var revAlpha = alphabet.lower.reverse().join('')
+
+var alpha = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ].join('')
+var revAlpha = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ].reverse().join('')
   // you can add any code you want within this function scope
   //helper functions 
 
@@ -32,6 +33,7 @@ function translateLetter(letter, value, encode) {
       return revAlpha[newPosition];
     }
   }
+
 
 function caesar(input, shift, encode = true) {
   if (shift > 25 || shift < -25 || shift === 0) {
