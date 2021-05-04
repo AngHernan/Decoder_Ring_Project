@@ -28,13 +28,11 @@ describe("substitution", () => {
         expect(actual).to.equal(expected);
     });
     it("return false if given alphabet less than 26 characters", () => {
-        const expected = false;
         const actual = substitution.substitution("thinkful", "short"); 
-        expect(actual).to.equal(expected);
+        expect(actual).to.be.false;
     });
     it("should return false if given alphabet reapeats characters", () => {
-        const expected = false;
         const actual = substitution.substitution("thinkful", "abcabcabcabcabcabcabcabcyz");
-        expect(actual).to.equal(expected);
+        expect(actual).to.be.false;
     });
     })

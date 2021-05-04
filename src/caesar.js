@@ -32,9 +32,6 @@ function translateLetter(letter, value, encode) {
       return revAlpha[newPosition];
     }
   }
-  //helper to decode/encode  
-
-  //helper to 
 
 function caesar(input, shift, encode = true) {
   if (shift > 25 || shift < -25 || shift === 0) {
