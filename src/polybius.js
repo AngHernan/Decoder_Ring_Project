@@ -9,14 +9,13 @@ const polybiusModule = (function () {
                   ['v', 'w', 'x', 'y', 'z'] 
                 ];
 
-  function rowFinder(letter){
+  const rowFinder = function(letter){
     for (row in grid){
-    if(grid[row].includes(letter) === true){ 
-        return Number(row);}
+    if(grid[row].includes(letter)) return Number(row);
     }
 }
 
-  function columnFinder(letter, row){
+  const columnFinder = function(letter, row){
     return grid[row].indexOf(letter);
 }
 
@@ -26,29 +25,22 @@ const polybiusModule = (function () {
 
     for(let i = 0; i < newWord.length; i++){
       let letter = newWord[i];
-      if(letter === 'i' || letter === 'j'){
-        number += '42';
-      }
-      else {
+      if(letter === 'i' || letter === 'j') number += '42';
       let letterRow = rowFinder(letter);
       let letterCol = columnFinder(letter, letterRow);
       number += String(letterCol + 1) + String(letterRow + 1);
-    
-    }
   }
     return number;
     
   }
 
   function numberDecode(number){
-    
     let value = number.split('');
     let word = "";
 
     for (let i = 0; i < number.length; i+=2){
       let first = Number(value[i+1]) - 1 
-      let second = Number(value[i]) - 1 
-      
+      let second = Number(value[i]) - 1
       word += grid[first][second]; 
     }
     return word;
@@ -57,18 +49,9 @@ const polybiusModule = (function () {
   function polybius(input, encode = true) {
     let phrase = [];
     let words = input.split(' ');
-    if (encode === false && input.split(" ").join("").length % 2 !==0){
-      return false;
-    }
-    else if (encode !== false){
-      for (word in words){
-        phrase.push(wordEncode(words[word]));
-
-      }
-    } else {
-        for (num in words){
-          phrase.push(numberDecode(words[num]));
-    }
+    if (!encode && input.split(" ").join("").length % 2 !==0) return false;
+    for (word in words){
+      encode? phrase.push(wordEncode(words[word])) : phrase.push(numberDecode(words[word]));
   }
     return phrase.join(' ');
   }

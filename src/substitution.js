@@ -43,10 +43,7 @@ const substitutionModule = (function () {
   function substitution(input, alphabet, encode = true) {
     let wordList = input.split(' ');
     let newWordList = []
-    if(alphabet.length !== 26 || checkRepeats(alphabet) === true){
-      return false;
-    }
-    else{
+    if(alphabet.length !== 26 || checkRepeats(alphabet) === true) return false;
     for(word in wordList){
       if(encode === true){
         newWordList.push(wordEncode(wordList[word].toLowerCase(), alphabet))
@@ -54,7 +51,6 @@ const substitutionModule = (function () {
       else {
         newWordList.push(wordDecode(wordList[word].toLowerCase(), alphabet))
       }
-    }
   }
     return newWordList.join(" ");
   }
