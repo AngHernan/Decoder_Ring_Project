@@ -26,21 +26,27 @@ const polybiusModule = (function () {
     for(let i = 0; i < newWord.length; i++){
       let letter = newWord[i];
       if(letter === 'i' || letter === 'j') number += '42';
+  
+      else {
       let letterRow = rowFinder(letter);
       let letterCol = columnFinder(letter, letterRow);
       number += String(letterCol + 1) + String(letterRow + 1);
+    
+    }
   }
     return number;
     
   }
 
   function numberDecode(number){
+    
     let value = number.split('');
     let word = "";
 
     for (let i = 0; i < number.length; i+=2){
       let first = Number(value[i+1]) - 1 
-      let second = Number(value[i]) - 1
+      let second = Number(value[i]) - 1 
+      
       word += grid[first][second]; 
     }
     return word;

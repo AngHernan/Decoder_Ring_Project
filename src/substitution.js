@@ -45,13 +45,9 @@ const substitutionModule = (function () {
     let newWordList = []
     if(alphabet.length !== 26 || checkRepeats(alphabet) === true) return false;
     for(word in wordList){
-      if(encode === true){
-        newWordList.push(wordEncode(wordList[word].toLowerCase(), alphabet))
-      }
-      else {
+      encode? newWordList.push(wordEncode(wordList[word].toLowerCase(), alphabet)) :
         newWordList.push(wordDecode(wordList[word].toLowerCase(), alphabet))
       }
-  }
     return newWordList.join(" ");
   }
 
