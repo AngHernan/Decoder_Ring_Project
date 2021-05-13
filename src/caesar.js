@@ -8,12 +8,8 @@ var revAlpha = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 
 function calculatePosition(index, value){
     let newPos = index + Math.abs(value); 
-    if (newPos >= 26){
-      return newPos - 26;
-    }
-    else {
-      return newPos;
-  }
+    if (newPos >= 26) return newPos - 26;
+    return newPos;
 }
 
 function translateLetter(letter, value, encode) {
@@ -31,19 +27,16 @@ function translateLetter(letter, value, encode) {
 
 
 function caesar(input, shift, encode = true) {
-  if (shift > 25 || shift < -25 || shift === 0) {
-    return false;
-    }
+  if (shift > 25 || shift < -25 || shift === 0) return false;
+  
   let newPhrase = "";
   let phrase = input.toLowerCase();
 
 
   for (let i = 0; i < phrase.length; i++){
-    if (alpha.includes(phrase[i])){
-      newPhrase += translateLetter(phrase[i], shift, encode)}
-    else {
+    (alpha.includes(phrase[i]))? 
+      newPhrase += translateLetter(phrase[i], shift, encode) :
       newPhrase += phrase[i]
-      }
     }
   return newPhrase;
   }
